@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="form" (submit)="onClickSave()" #postForm="ngForm" *ngIf="!isLoading">
+      <mat-form-field>
+          <input
+          matInput
+          type="text"
+          formControlName="title"
+          placeholder="Inscrire un titre">
+          <mat-error *ngIf="form.get('title').invalid">Entrer un titre.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea
+        matInput
+        rows=4
+        formControlName="content"
+        placeholder="Inscrire un contenu"></textarea>
+        <mat-error *ngIf="form.get('content').invalid">Entrer un contenu.</mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit">Enregistrer</button>
+  </form>
+</mat-card>

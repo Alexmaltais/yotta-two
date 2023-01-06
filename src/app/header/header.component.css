@@ -1,0 +1,27 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.table {
+  display: table;
+  clear: both;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul#header-nav li {
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+

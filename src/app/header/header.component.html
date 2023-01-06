@@ -1,0 +1,28 @@
+<mat-toolbar color='primary'>
+  <span>
+    <a routerLink="/">Beneva</a>
+  </span>
+  <span class="spacer"></span>
+  <div class="table">
+    <ul id="header-nav">
+      <li *ngIf="userIsAuthenticated && mode === 'create'">
+        <a mat-button routerLink="/create" routerLinkActive="mat-accent">Nouvelle note</a>
+      </li>
+      <li *ngIf="userIsAuthenticated && userIsAdmin">
+        <a mat-button routerLink="/tasks" routerLinkActive="mat-accent">Traitement épargne</a>
+      </li>
+      <li *ngIf="userIsAuthenticated">
+        <a mat-button routerLink="/task-ind" routerLinkActive="mat-accent">Stats ind. épargne</a>
+      </li>
+      <li *ngIf="!userIsAuthenticated">
+        <a mat-button routerLink="/login" routerLinkActive="mat-accent">Se connecter</a>
+      </li>
+      <li *ngIf="!userIsAuthenticated">
+        <a mat-button routerLink="/signup" routerLinkActive="mat-accent">Créer un compte</a>
+      </li>
+      <li *ngIf="userIsAuthenticated">
+        <button mat-button (click)="onLogout()">Se déconnecter</button>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>

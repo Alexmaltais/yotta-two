@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  margin-top: 2rem;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+#chart-area {
+  width: 100%;
+  min-height: var(--chart-height);
+}
+.row {
+  margin:0 !important;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+
+

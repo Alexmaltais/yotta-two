@@ -1,0 +1,17 @@
+mat-form-field {
+  width: 100%;
+}
+
+:host {
+  display: block;
+  margin-top: 2rem;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+  margin-bottom: 1rem;
+}

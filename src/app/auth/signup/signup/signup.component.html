@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
+      <mat-radio-group aria-label="Select an option" [(ngModel)]="role" name="roleSelection">
+        <mat-radio-button value="admin">Admin</mat-radio-button>
+        <mat-radio-button value="employe">Employé</mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field>
+          <input matInput name="email" ngModel placeholder="Inscrire une adresse courriel" #emailInput='ngModel' required email>
+          <mat-error *ngIf="emailInput.invalid">Entrer une adresse courriel valide.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput name="jiraName" ngModel placeholder="Inscrire votre nom Jira" #jiraNameInput='ngModel' required>
+          <mat-error *ngIf="jiraNameInput.invalid">Entrer une adresse courriel valide.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input name='password' ngModel matInput placeholder="Choisir un mot de passe" #passwordInput='ngModel' required>
+        <mat-error *ngIf="passwordInput.invalid">Entrer un mot de passe valide.</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="accent" type="submit">Créer un compte</button>
+  </form>
+</mat-card>

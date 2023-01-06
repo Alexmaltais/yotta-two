@@ -1,0 +1,51 @@
+<mat-progress-bar *ngIf="isLoading"></mat-progress-bar>
+<span *ngIf="!isLoading"></span>
+<mat-form-field *ngIf="!isLoading"color="accent">
+  <input matInput [matDatepicker]="picker1" placeholder="Date de début" [value]="dateFrom"
+  (dateInput)="changeDateFrom('input', $event)" (dateChange)="changeDateFrom('change', $event)">
+  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+  <mat-datepicker #picker1></mat-datepicker>
+</mat-form-field>
+<mat-form-field *ngIf="!isLoading" color="accent">
+  <mat-label>Date de fin</mat-label>
+  <input matInput [matDatepicker]="picker2" placeholder="Date de fin" [value]="dateTo"
+  (dateInput)="changeDateTo('input', $event)" (dateChange)="changeDateTo('change', $event)">
+  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+  <mat-datepicker #picker2></mat-datepicker>
+</mat-form-field>
+<mat-form-field *ngIf="!isLoading" >
+  <mat-label>Axe d'anlayse</mat-label>
+  <mat-select [(value)]="axeAnalyseSelected">
+    <mat-option *ngFor="let axeAnalyse of axesAnalyse" [value]="axeAnalyse.value">
+      {{axeAnalyse.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<button
+mat-raised-button
+color="primary"
+(click)="update()">Mettre à jour</button>
+<div class="container" *ngIf="!isLoading && role === 'admin'">
+  <div class="row">
+    <div id="chart-area">
+      <ngx-charts-bar-horizontal-2d *ngIf="tasksEp"
+      [results]="tasksEp"
+      [scheme]="colorScheme"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="true"
+      [showDataLabel]="true"
+      ></ngx-charts-bar-horizontal-2d>
+    </div>
+  </div>
+</div>
+<div *ngIf="role === 'employe'">
+  <ngx-charts-bar-vertical-2d *ngIf=""
+    [view]="view"
+    [results]=""
+    [scheme]="colorScheme"
+    [xAxis]="true"
+    [yAxis]="true"
+    [legend]="true"
+  ></ngx-charts-bar-vertical-2d>
+</div>
