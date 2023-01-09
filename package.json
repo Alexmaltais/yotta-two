@@ -36,6 +36,7 @@
     "ngx-lottie": "^7.1.0",
     "nodemon": "^2.0.4",
     "rxjs": "~6.5.5",
+    "snowflake-sdk": "^1.6.17",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },
